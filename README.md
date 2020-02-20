@@ -90,3 +90,43 @@ def is a keyword.
             for i in range(0, len(parseTree[2])):
                 Bindings[Bindings[2,i]] = evalL(parseTree[2,i])
             return evalL(parseTree[3])
+
+
+## Scoping - 2/13/20
+Only allow the function to access certain variables
+Scopes are always concentric in a program.
+That is, inner scopes inherit all variables in the outer scopes.
+You can repeat this forever. i.e. define an inner scope inside the inner scope
+
+Dynamic Scoping - Try to find the variable in the dictionary for the scope you are currently in (inner scope), then try to go up a level and search for the variable in that dictionary. 
+
+An example of denoting scoping in C++ is 
+{-denotes beginning of scope 
+}- denotes close of scope
+
+For our language every function call creates a new scope.  In the scope is:
+- All input parameters are in the scope
+- All assignments made in the scope
+
+## Decision on how to Scope - 2/13/20
+
+Possible Solution: Make a global array.
+The first dictionary in the array will be the outermost scope.
+as new scopes are defined we increment the location in the global array and place the new scope dictionary there.
+When searching through scopes to find a variable just decrement the global variable and go through the scope dictionary's going up to the outermost scope.
+
+## Continuation about eLInterpreter 2/18/20
+
+Set and def will modify things
+
+## Short Circuit Evaluation
+
+An expression in which the result is determined without evaluating all of the operands and/or operators
+In the and case - if anything evaluates to false, you can skip the rest of evaluations
+In the or case - if anything evaluates to true, you can skip the rest of evaluations
+
+### Homework - 2/18/20
+
+Read Chapter 7 and 8 notes/slides.
+eL Interpreter assign due Firday.
+
