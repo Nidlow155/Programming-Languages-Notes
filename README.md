@@ -130,3 +130,44 @@ In the or case - if anything evaluates to true, you can skip the rest of evaluat
 Read Chapter 7 and 8 notes/slides.
 eL Interpreter assign due Firday.
 
+## Delayed Evaluation - 2/27/2020
+
+- Templates
+
+- Macros
+
+- Lazy vs Eager Evaluation
+
+Given a list return the length of the list
+
+6 <- (length (quote (1 2 3 4 5 22)))
+
+"On the way back"
+
+    (def length (list)
+    (if (atom list)
+        0
+        (+ (length (rest list)) 1))))
+
+Alternate Version - "On the way down"
+
+    (def length (list)
+        (len list 0))
+    (def len(list count)
+        (if (atom list)
+            count
+            (len (rest list) (+ 1 count))))
+
+### For Loop
+
+First in Python:
+
+    def len(list):
+        i = 0
+        for item in list:
+            i += 1
+        return i
+
+Now in eL:
+
+Cliffhanger...
